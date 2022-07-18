@@ -1,0 +1,8 @@
+Ruben Rubalcaba 
+RedID: 820565766
+November 29 2021
+Grammar Rules:
+	Exp(): <TERM> (<OP><TERM>
+	Term():<int>"-"<int> | <relop>| <expression
+	Relop(): <lop>|"<"|">"|"<="|">="|"="|"!="|"not"
+	lop():"and"|"or"|"nand"|"xor"|"xnor"

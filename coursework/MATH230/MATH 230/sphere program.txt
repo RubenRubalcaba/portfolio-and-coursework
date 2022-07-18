@@ -1,0 +1,67 @@
+/*
+Ruben Rubalcaba
+Math 230
+Instructor: Mimi Rasky
+9/17/2019
+Lab #2
+*/
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define M_PI 3.14159265358979323846264338327950288
+
+main()
+{
+    int rad, rad2, rad3, rad4, rad5;
+    double radcm, radcm2, radcm3, radcm4, radcm5;
+    double vol, vol2, vol3, vol4, vol5;
+    double surf, surf2, surf3, surf4, surf5;
+    double four = 4.0, three = 3.0, avg;
+
+    printf("Please enter an integer radius measurement (in inches) : ");
+    scanf("%d", &rad);
+    printf("Please enter an integer radius measurement (in inches) : ");
+    scanf("%d", &rad2);
+    printf("Please enter an integer radius measurement (in inches) : ");
+    scanf("%d", &rad3);
+    printf("Please enter an integer radius measurement (in inches) : ");
+    scanf("%d", &rad4);
+    printf("Please enter an integer radius measurement (in inches) : ");
+    scanf("%d", &rad5);
+
+    radcm = rad * 2.54;
+    radcm2 = rad2 * 2.54;
+    radcm3 = rad3 * 2.54;
+    radcm4 = rad4 * 2.54;
+    radcm5 = rad5 * 2.54;
+
+    vol = (four/three) * M_PI * pow( radcm, 3 );
+    vol2 = (four/three) * M_PI * pow( radcm2, 3 );
+    vol3 = (four/three) * M_PI * pow( radcm3, 3 );
+    vol4 = (four/three) * M_PI * pow( radcm4, 3 );
+    vol5 = (four/three) * M_PI * pow( radcm5, 3 );
+
+    surf = (four) * M_PI * pow( radcm, 2 );
+    surf2 = (four) * M_PI * pow( radcm2, 2 );
+    surf3 = (four) * M_PI * pow( radcm3, 2 );
+    surf4 = (four) * M_PI * pow( radcm4, 2 );
+    surf5 = (four) * M_PI * pow( radcm5, 2 );
+
+    avg = (rad + rad2 + rad3 + rad4 + rad5) /5;
+
+
+    printf("Radius (in.)\t");
+    printf("Radius (cm.)\t");
+    printf("Volume (cu. cm.)\t");
+    printf("Surface area (sq. cm.)\n");
+    printf("________________________________________________________________________________\n");
+    printf("\n");
+    printf("%7d in.%16.1f%21.1f%23.1f \n", rad, radcm, vol, surf);
+    printf("%7d in.%16.1f%21.1f%23.1f \n", rad2, radcm2, vol2, surf2);
+    printf("%7d in.%16.1f%21.1f%23.1f \n", rad3, radcm3, vol3, surf3);
+    printf("%7d in.%16.1f%21.1f%23.1f \n", rad4, radcm4, vol4, surf4);
+    printf("%7d in.%16.1f%21.1f%23.1f \n", rad5, radcm5, vol5, surf5);
+    printf("\n");
+    printf("The average of all the radii is: %.1f inches", avg);
+
+}

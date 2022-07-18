@@ -1,0 +1,38 @@
+/*
+ * Ruben Rubalcaba 
+ * October 27 2019
+ * Math 265
+ */
+import java.util.*;  
+public class Euclidianalgorithim {
+
+	public static void main(String[] args) 
+	{
+		int a,b,r;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter an integer for a");
+		a = sc.nextInt();
+		System.out.println("Please enter an integer for b");
+		b = sc.nextInt();
+		System.out.println("Please enter an integer for r");
+		r = sc.nextInt();
+		
+		
+		System.out.println("GCD:  " + gcd(a,b));
+		b = gcd(a,b);
+		System.out.println("GCD:  "+ gcd(b,r));
+		
+
+	}
+
+
+	public static int gcd(int a, int b)
+	{
+		while(a == 0)
+		{
+			return b;
+		}
+		return gcd(b%a, a);
+			
+	}
+}

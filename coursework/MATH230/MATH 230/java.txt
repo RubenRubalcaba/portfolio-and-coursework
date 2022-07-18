@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class cardVerifier 
+{
+	public static void main(String[] args) 
+	{
+		String cardNumber;
+		String eighteen= "0123456789ABCDEFGH";
+		Scanner card = new Scanner(System.in);
+		System.out.print("Enter a credit card number (enter blank line to quit):");
+		cardNumber = card.nextLine();
+		isValid(cardNumber);
+		
+		 
+	}
+	public void convertBase18(String creditCard) 
+	{
+	
+		int[] decennoctal = new int[creditCard.length()];
+		for(int i = 0; i < creditCard.length(); i++) 
+		{
+			
+		}
+	}
+	public static void isValid(String creditCard) 
+	{
+		int checkDigit = 0;
+		String split;
+		int sum = 0;
+		int j = 1;
+		int[] card = new int[16];
+		for(int i =1 ; i<=creditCard.length()-1;i++) 
+		{
+			card[i] =(creditCard.charAt(i)-'0')*2;
+			if(card[i] > 9) 
+			{
+				split=(card.toString().charAt(i)+" ");
+				card[i] = (split.charAt(0) - '0') + (split.charAt(1)-'0');
+			}
+			
+			
+		}
+		while(card[j]<16) 
+		
+			sum+= card[j];
+			j++;
+		
+		split=(sum+" ");
+		checkDigit=10-(split.charAt(0)-'0');
+		System.out.println("Check digit should be: " + card[0]  );
+		System.out.println("Check digit is: " + checkDigit );
+		if(checkDigit==card[0])
+		
+			System.out.println("Number is valid");
+		
+		else
+			System.out.println("Number is not valid");
+		
+	}
+}

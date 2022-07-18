@@ -1,0 +1,105 @@
+import java.util.Scanner;
+public class cardVerifier 
+{
+	public static void main(String[] args) 
+	{
+		String cardNumber;
+		//Open ended for user input data 
+		Scanner card = new Scanner(System.in);
+		//infinite user loop
+		while(true) 
+		{
+		System.out.print("Enter a credit card number (enter blank line to quit):");
+		
+		cardNumber = card.nextLine();
+		if(cardNumber.length() < 16 && cardNumber.length()> 0) 
+		{
+			System.out.println("ERROR! Number MUST have exactly 16 digits");
+			//break statement to caution user for invalid input
+			break;
+		}
+			
+		else if(cardNumber.isEmpty() ) 
+		{
+			System.out.println("Goodbye!");
+			break;
+		}
+			
+		isValid(cardNumber);
+		}
+		 
+	}
+	public void convertBase18(String creditCard) 
+	{
+		//Value dictionary for base 18
+		String eighteen = "0123456789ABCDEFGH";
+		char ch;
+		int i = 0;
+		int[] decennoctal = new int[creditCard.length()];
+		//While loop to convert string to base 18
+		while(creditCard.) 
+		{
+			//deccenoactal[i] = creditcard%18
+			if(decennoctal[i] > 9) 
+			{
+				//If number passes over 9 convert to character
+				decennoctal[i] = eighteen.charAt(decennoctal[i]);
+			}
+			//creditCard /= 18
+			i++;
+			for(int j = i - 1; j >= 0 ; j--) 
+			{
+				System.out.println(decennoctal[j]);
+			}
+				
+				
+		}
+	}
+	public static void isValid(String creditCard) 
+	{
+		int digit = 0;
+		int r = 0;
+		int sumOfNums = 0;
+		int checkDigit=0;
+		
+		for(int i = 0; i < 15; i += 1 ) 
+		{
+			//Taking from char to ints
+			digit = (creditCard.charAt(i)-'0');
+			//Taking from each even place
+			if(i % 2 == 0) 
+			{
+			//Then doubling and splitting digits if needed
+			r = digit * 2 % 9;
+			//solving problem with 9 being taken as remainder 9
+			if(digit >0 && r == 0) 
+			{
+				 r = 9;
+			}
+			
+			}else 
+			{
+			r = digit;
+			}
+			sumOfNums += r;
+
+		}
+		//Taking the least significant bit from the sum.
+		int sumIndex = sumOfNums % 10;
+		
+		checkDigit = 10 - sumIndex;
+		System.out.println("Check digit should be: " + (creditCard.charAt(15)-'0'));
+		System.out.println("Check digit is: " + checkDigit);
+		//Boolean to check if the check digit is valid and solves if check digit is 0
+		if(checkDigit % 10  == 0 ||  checkDigit == creditCard.charAt(15)-'0') 
+		
+			System.out.println("Number is Valid");
+		
+		else 
+		
+			System.out.println("Number is not valid");
+			
+		
+		
+	}
+}
